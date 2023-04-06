@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/spotflix/static/css/main.e6bdeec5.css",
+    "main.js": "/spotflix/static/js/main.947cfe48.js",
+    "index.html": "/spotflix/index.html",
+    "main.e6bdeec5.css.map": "/spotflix/static/css/main.e6bdeec5.css.map",
+    "main.947cfe48.js.map": "/spotflix/static/js/main.947cfe48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6bdeec5.css",
+    "static/js/main.947cfe48.js"
+  ]
+}
