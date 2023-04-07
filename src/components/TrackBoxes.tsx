@@ -17,9 +17,10 @@ return minutes+":"+seconss
 
 
 
- if (tracks.name.length > 18) {
+ if (tracks.title.length > 18) {
   slideRight=true;
 };
+
 
 
 
@@ -29,15 +30,15 @@ return minutes+":"+seconss
     <IconContext.Provider value={{ size: '1.2em'}}>
     <div>
       <div className={`trackCard ${slideRight? 'onHoverSlideRight':''}` }>
-      <img  src={tracks.album.images[0].url} alt="respective album pic" />
+      <img  src={tracks.albumImage} alt="respective album pic" />
       <div className='albumCard__Name--text'>
         <div className='trackCard__timeandplay'>
-      <h3 className='albumCard__h3' >{tracks.name}</h3>
-      <h4>{tracks.artists[0].name}</h4>
+      <h3 className='albumCard__h3' >{tracks.title}</h3>
+      <h4>{tracks.artists}</h4>
       </div>
       <div className='trackCard__timeandplay'>
       <a href={tracks.uri} className='play_button'  type='button'><FaPlay  /></a>
-      <h6>{convertMStoMT(tracks.duration_ms)}</h6>
+      <h6>{convertMStoMT(tracks.duration)}</h6>
       
       </div>
       </div>
