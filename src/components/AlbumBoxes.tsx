@@ -1,30 +1,44 @@
-import React, { FC } from 'react'
-
+import {FC} from 'react'
 
 interface Props {
-  release_date: string;
-  external_urls: any;
-  map(albumCards: FC<Props>): import("react").ReactNode;
-  images: any;
+ 
+  slicedAlbums:{
+    release_date: string;
+    external_urls: {spotify:string}
+    images: {
+     url:string
+    }[];
+    name:string;
+   }
+  albumTracks:any
+ }
+
+ 
+
+ export const AlbumBoxes:FC<Props> = ({slicedAlbums,albumTracks}) => {
   
-
-  name:string;
-}
-
-const AlbumBoxes:React.FC<Props> = (Albums) => {
   function reverseDate(str: string){
     return str.split('-').reverse().join('/');
   }
 
+console.log(albumTracks);
+
 
 
   return (
-    <a href={Albums.external_urls.spotify}  rel="noreferrer noopener" target="_blank">
+    <a href={slicedAlbums.external_urls.spotify}  rel="noreferrer noopener" target="_blank">
     <div className='albumCard'>
-      <img  src={Albums.images[0].url} alt="respective album pic" />
+      <div className='albumCard__imageAndTracks'>
+      <img  src={slicedAlbums.images[0].url} alt="respective album pic" />
+      <div>
+        
+        {albumTracks.map(({name}:any)=>(<h3>{name}</h3>))}
+        
+      </div>
+      </div>
       <div className='albumCard__Name--text'>
-      <h3 className='albumCard__h3'>{Albums.name}</h3>
-      <h6>{reverseDate(Albums.release_date)}</h6>
+      <h3 className='albumCard__h3'>{slicedAlbums.name}</h3>
+      <h6>{reverseDate(slicedAlbums.release_date)}</h6>
       </div>
       </div>
     
@@ -32,6 +46,5 @@ const AlbumBoxes:React.FC<Props> = (Albums) => {
   )
 }
 
-export default AlbumBoxes
 
 
