@@ -77,7 +77,7 @@ background-size: cover;
     box-shadow: 0 0 5px black;
     background: linear-gradient(#f04b4b, #9198e5);
     flex:0 0 200px;
-    width: 350px;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
     opacity: 0.7;
@@ -90,6 +90,7 @@ background-size: cover;
     width: 200px;
 }
 .albumCard__imageAndTracks{
+
   display: flex;
   flex-direction: row;
 }

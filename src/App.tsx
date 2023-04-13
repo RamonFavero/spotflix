@@ -80,6 +80,7 @@ fetch('https://accounts.spotify.com/api/token',authParameters)
 
 const formSubmit = (e:React.SyntheticEvent) =>{
   e.preventDefault();
+  
   setTimeout(()=>{search()},200);
 }
 
@@ -116,14 +117,10 @@ var returnedAlbums = await fetch ('https://api.spotify.com/v1/artists/'+artistID
 .then(data=>{return setAlbums(data.items);
 })
 
-var testReturnedAlbums = await fetch ('https://api.spotify.com/v1/artists/'+artistID+'/albums?include_groups=album&market=US&limit=15', searchParameters)
-.then(response => response.json())
-.then(data=>{return data.items[0].id})
 
 
-var searchAlbumTracks = fetch ('https://api.spotify.com/v1/albums/'+testReturnedAlbums+'/tracks?include_groups=album&market=US&limit=15', searchParameters)
-.then(response => response.json())
-.then(data=>{return setAlbumTracks(data.items)})
+
+
 }
 
 
@@ -152,10 +149,14 @@ var searchAlbumTracks = fetch ('https://api.spotify.com/v1/albums/'+testReturned
       <div className="cardsContainer">
         <ButtonArrow nextCard={nextCard} buttonName='backwardalbum' />
         
-      {slicedAlbums.map(slicedAlbums=>(
+      {slicedAlbums.map((slicedAlbums,index)=>(
         <AlbumBoxes 
-        slicedAlbums={slicedAlbums}
-          albumTracks={albumTracks} />
+          slicedAlbums={slicedAlbums}
+          accessToken={accessToken}
+          index={index}
+          albumTracks={albumTracks}
+          setAlbumTracks={setAlbumTracks}
+          />
       ))}
 
       <ButtonArrow nextCard={nextCard} buttonName='fowardalbum' />
