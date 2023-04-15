@@ -109,6 +109,18 @@ background-size: cover;
     justify-content: space-between;
    
 }
+.TracksInsideAlbums {
+  margin-top: 10px;
+  margin-left: 5px;
+
+}
+.TracksInsideAlbums h3 {
+  margin-bottom: 1em;
+  overflow: hidden; 
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
 a {
   text-decoration: none;
   color:rgb(78, 78, 78);
@@ -153,11 +165,48 @@ width: 160px;
     from {
       transform: translateX(0);
     }to {
-        transform: translateX(-10rem);
+        transform: translateX(-2rem);
     }}
+
     .onHoverSlideRight:hover h3{
-        animation:onHoverSlideRight 2s ;
+        animation:onHoverSlideRight 0.7s ;
       }
+@keyframes onHoverSlideRight2 {
+ from {
+ transform: translateX(0);
+ }to {
+ transform: translateX(-6rem);
+  }}
+.onHoverSlideRight2:hover h3{
+  animation:onHoverSlideRight2 1.2s ;
+   }
+   @keyframes onHoverSlideRight3 {
+    from {
+    transform: translateX(0);
+    }to {
+    transform: translateX(-11rem);
+     }}
+   .onHoverSlideRight3:hover h3{
+     animation:onHoverSlideRight3 1.9s ;
+      }
+      @keyframes onHoverSlideRight4 {
+        from {
+        transform: translateX(0);
+        }to {
+        transform: translateX(-16rem);
+         }}
+       .onHoverSlideRight4:hover h3{
+         animation:onHoverSlideRight4 2.3s ;
+          }
+ @keyframes onHoverSlideRight5 {
+    from {
+ transform: translateX(0);
+  }to {
+ transform: translateX(-30rem);
+}}
+.onHoverSlideRight5:hover h3{
+ animation:onHoverSlideRight5 5s ;
+ }
 
 
 .trackCard__timeandplay h6{

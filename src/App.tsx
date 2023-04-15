@@ -33,14 +33,14 @@ const nextCard = (e: React.MouseEvent<HTMLButtonElement, MouseEvent> & {target:H
   const { name } = e.target.parentElement as HTMLButtonElement;
 
 if (name ==='fowardalbum') {
-  if (two===20) {
+  if (three===10) {
     return
   }else {
   setTwo(two+1);
   setThree(three+1);
   }
 } else if (name ==='backwardalbum') {
-  if (three===0) {
+  if (two===0) {
     return
   }else {
   setTwo(two-1);

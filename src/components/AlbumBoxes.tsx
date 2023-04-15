@@ -1,4 +1,4 @@
-import {FC, ReactNode, useEffect} from 'react'
+import {FC, JSXElementConstructor, ReactElement, ReactFragment, ReactNode, ReactPortal, useEffect, useState} from 'react'
 
 interface Props {
  
@@ -21,7 +21,8 @@ interface Props {
  
 
  export const AlbumBoxes:FC<Props> = ({slicedAlbums,accessToken,index,setAlbumTracks,albumTracks}) => {
-  let tracksForAlbum
+
+ const [renderTracks, setRenderTracks] = useState(false)
   function reverseDate(str: string){
     return str.split('-').reverse().join('/');
   }
@@ -37,11 +38,16 @@ interface Props {
     }
 useEffect(() => {
   var searchAlbumTracks = fetch ('https://api.spotify.com/v1/albums/'+slicedAlbums.id+'/tracks?include_groups=album&market=US&limit=3', searchParameters)
-  .then(response => response.json())
+  .then(response => {
+   if (response.status===200) {
+     
+     setTimeout(() => {
+      setRenderTracks(true)
+     }, 300);
+   }
+   return response.json()})
   .then(data => {
-
-    return setAlbumTracks((prevItems: any)=>[...prevItems, data.items[0].name])
-  
+    return setAlbumTracks((prevItems: any)=>[...prevItems, data.items])
   })
   },[slicedAlbums.id] )
 
@@ -49,9 +55,10 @@ useEffect(() => {
 
 
 
-  console.log(albumTracks);
+  
 
-const last4 = albumTracks.slice(-4)
+const last4:any[] = albumTracks.slice(-4)
+
 
   return (
    // <a href={slicedAlbums.external_urls.spotify}  rel="noreferrer noopener" target="_blank">
@@ -59,11 +66,18 @@ const last4 = albumTracks.slice(-4)
     <div className='albumCard'>
       <div className='albumCard__imageAndTracks'>
       <img  src={slicedAlbums.images[0].url} alt="respective album pic" />
-      <div>
- <h3>
-{last4[index]}
- </h3>
-      </div>
+      <div className='TracksInsideAlbums'>
+ 
+{renderTracks? 
+ 
+  last4[index].map((
+        tracksOfAlbum: { name: string })=>(
+    <h3>{tracksOfAlbum.name}</h3>
+      ))
+
+  : ''} 
+
+  </div> 
       </div>
       <div className='albumCard__Name--text'>
       <h3 className='albumCard__h3'>{slicedAlbums.name}</h3>
