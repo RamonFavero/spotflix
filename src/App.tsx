@@ -13,6 +13,7 @@ const CLIENT_SECRET = "9234dad161ee4bba98ebcee2d12dbc09";
 
 
 const App:React.FC = () => {
+ 
   
 const [searchItem, setSearchItem] = useState<string>('')
 const [accessToken, setAccessToken] = useState<string>('')
@@ -26,6 +27,33 @@ const [three, setThree] = useState<number>(4)
 
 let slicedTracks = tracks.slice(zero, one)
 let slicedAlbums = albums.slice(two, three)
+
+
+useEffect(() => {
+  const windowSizeAjust = () => {
+  let w = window.innerWidth;
+
+    if (w >= 1800) {
+        setThree(4)
+       setOne(7)
+     }else if (w >= 1500 && w <1800) {
+      setThree(3)
+       setOne(6)
+     }else if (w >= 1350 && w <1500) {
+        setThree(2)
+       setOne(5)
+     }else if (w >= 1320 && w <1350) {
+      setThree(1)
+     setOne(4)
+   }else if (w >= 720 && w <1060) {
+    setThree(1)
+   setOne(3)
+ }
+  
+  }
+ 
+  window.addEventListener("resize", windowSizeAjust);
+}, [])
 
 
 
