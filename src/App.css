@@ -112,15 +112,22 @@ background-size: cover;
 .TracksInsideAlbums {
   margin-top: 10px;
   margin-left: 5px;
-
+ 
 }
 .TracksInsideAlbums h3 {
+padding-top: 15px;
+padding-left: 7px;
   margin-bottom: 1em;
   overflow: hidden; 
 text-overflow: ellipsis;
 white-space: nowrap;
-}
 
+}
+.albumCard__rowOfTracks{
+ 
+  display: flex;
+  flex-direction: row;
+}
 a {
   text-decoration: none;
   color:rgb(78, 78, 78);

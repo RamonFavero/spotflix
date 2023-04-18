@@ -1,4 +1,6 @@
-import {FC, JSXElementConstructor, ReactElement, ReactFragment, ReactNode, ReactPortal, useEffect, useState} from 'react'
+import {FC, ReactNode, useEffect, useState} from 'react'
+import { IconContext } from 'react-icons';
+import { FaPlay } from "react-icons/fa";
 
 interface Props {
  
@@ -58,6 +60,7 @@ useEffect(() => {
   
 
 const last4:any[] = albumTracks.slice(-4)
+console.log(last4[0]);
 
 
   return (
@@ -71,8 +74,11 @@ const last4:any[] = albumTracks.slice(-4)
 {renderTracks? 
  
   last4[index].map((
-        tracksOfAlbum: { name: string })=>(
-    <h3>{tracksOfAlbum.name}</h3>
+      tracksOfAlbum: { name: string, uri:string })=>(
+       <div className='albumCard__rowOfTracks'>
+         <a href={tracksOfAlbum.uri} style={{backgroundImage:`linear-gradient(to left,#f04b4b, #9198e5)`, }} className='play_button'  type='button'><FaPlay  /></a>
+         <h3>{tracksOfAlbum.name}</h3>
+       </div>
       ))
 
   : ''} 
