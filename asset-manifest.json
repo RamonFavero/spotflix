@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/spotflix/static/css/main.5b2accf5.css",
-    "main.js": "/spotflix/static/js/main.98b8fc26.js",
+    "main.css": "/spotflix/static/css/main.d0eadc01.css",
+    "main.js": "/spotflix/static/js/main.770101e0.js",
     "index.html": "/spotflix/index.html",
-    "main.5b2accf5.css.map": "/spotflix/static/css/main.5b2accf5.css.map",
-    "main.98b8fc26.js.map": "/spotflix/static/js/main.98b8fc26.js.map"
+    "main.d0eadc01.css.map": "/spotflix/static/css/main.d0eadc01.css.map",
+    "main.770101e0.js.map": "/spotflix/static/js/main.770101e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b2accf5.css",
-    "static/js/main.98b8fc26.js"
+    "static/css/main.d0eadc01.css",
+    "static/js/main.770101e0.js"
   ]
 }
