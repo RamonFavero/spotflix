@@ -99,6 +99,7 @@ background-size: cover;
     opacity: 1;
 }
 .albumCard__h3{
+  
     color: rgb(83, 83, 83);
 }
 .albumCard__Name--text{
@@ -112,11 +113,19 @@ background-size: cover;
 .TracksInsideAlbums {
   margin-top: 10px;
   margin-left: 5px;
- 
 }
-.TracksInsideAlbums h3 {
+.TracksInsideAlbums a {
+  
+  margin-left: 6px;
+}
+.TracksInsideAlbums__h3--div{
+  overflow-y: hidden;
+  display: inline-block;
+}
+.TracksInsideAlbums__h3 {
+  
 padding-top: 15px;
-padding-left: 7px;
+padding-left: 5px;
   margin-bottom: 1em;
   overflow: hidden; 
 text-overflow: ellipsis;
@@ -124,10 +133,13 @@ white-space: nowrap;
 
 }
 .albumCard__rowOfTracks{
- 
+  margin-left: -4px;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
 a {
   text-decoration: none;
   color:rgb(78, 78, 78);

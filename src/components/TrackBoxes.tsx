@@ -1,7 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { IconContext } from 'react-icons';
 import { FaPlay } from "react-icons/fa";
-import Props from "./modal"
+
+interface Props {
+  tracks:{
+    duration: number;
+    title: string;
+    albumImage: string;
+    uri:string
+    album: {
+      images: {
+        url:string
+      }[];
+       name: string;
+    };  
+      duration_ms: number;
+      release_date: string;
+      name:string;
+      id: string;
+      slideRight:boolean;
+  }
+
+}
 
 
 const TrackBoxes:React.FC<Props> = ({tracks}) => {
@@ -47,6 +67,7 @@ switch (true) {
 
 
 
+
  
   return (
     <IconContext.Provider value={{ size: '1.2em'}}>
@@ -56,7 +77,7 @@ switch (true) {
       <div className='albumCard__Name--text'>
         <div className='trackCard__timeandplay'>
       <h3 className='albumCard__h3' >{tracks.title}</h3>
-      <h4>{tracks.artists}</h4>
+      
       </div>
       <div className='trackCard__timeandplay'>
       <a href={tracks.uri} className='play_button'  type='button'><FaPlay  /></a>

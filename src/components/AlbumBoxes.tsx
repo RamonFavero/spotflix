@@ -1,5 +1,6 @@
-import {FC, ReactNode, useEffect, useState} from 'react'
-import { IconContext } from 'react-icons';
+
+import {FC, ReactNode, useEffect, useState, MouseEvent } from 'react'
+
 import { FaPlay } from "react-icons/fa";
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
    index:any
    albumTracks:ReactNode[]
   accessToken:string
-  setAlbumTracks:any
+  setAlbumTracks:React.Dispatch<React.SetStateAction<any[]>>
  }
 
  
@@ -55,12 +56,15 @@ useEffect(() => {
 
 
 
-
-
+const handleHover = (e:MouseEvent<HTMLHeadingElement, globalThis.MouseEvent>) => {
   
+  let text = e.currentTarget.innerHTML
+console.log(text.length);
+
+}
+
 
 const last4:any[] = albumTracks.slice(-4)
-console.log(last4[0]);
 
 
   return (
@@ -75,9 +79,13 @@ console.log(last4[0]);
  
   last4[index].map((
       tracksOfAlbum: { name: string, uri:string })=>(
-       <div className='albumCard__rowOfTracks'>
+       <div  className='albumCard__rowOfTracks onHoverSlideRight3'>
+       
          <a href={tracksOfAlbum.uri} style={{backgroundImage:`linear-gradient(to left,#f04b4b, #9198e5)`, }} className='play_button'  type='button'><FaPlay  /></a>
-         <h3>{tracksOfAlbum.name}</h3>
+        
+        <div className='TracksInsideAlbums__h3--div'>
+         <h3 className='TracksInsideAlbums__h3' onMouseOver={(e)=>{handleHover(e) }}  >{tracksOfAlbum.name}</h3>
+         </div>
        </div>
       ))
 

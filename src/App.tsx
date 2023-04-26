@@ -18,7 +18,7 @@ const App:React.FC = () => {
 const [searchItem, setSearchItem] = useState<string>('')
 const [accessToken, setAccessToken] = useState<string>('')
 const [albums, setAlbums] = useState<any[]>([])
-const [albumTracks, setAlbumTracks] = useState([])
+const [albumTracks, setAlbumTracks] = useState<any[]>([])
 const [tracks, setTracks] = useState([])
 const [zero, setZero] = useState<number>(0)
 const [one, setOne] = useState<number>(7)
